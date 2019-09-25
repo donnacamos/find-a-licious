@@ -13,9 +13,9 @@ Rails.application.routes.draw do
  
   resources :restaurants 
 
-   resources :cities do 
-     resources :restaurants, only [:new, :create, :index]
-     resources :reviews, only: [:new, :create, :index] 
-   end 
+  #  resources :cities do 
+  #    resources :restaurants,  only [:new, :create, :index]
+  #    resources :reviews,  only: [:new, :create, :index] 
+  #  end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end 
