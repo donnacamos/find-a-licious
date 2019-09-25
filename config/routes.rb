@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cities
   resources :companies
   root 'sessions#home'
    get '/signup' => 'users#new'
@@ -7,13 +8,14 @@ Rails.application.routes.draw do
    get '/logout' => 'sessions#destroy' 
    get '/auth/facebook/callback' => 'sessions#fbcreate' 
 
-  resources :reviews
-  resources :restaurants
+  
   resources :users
-  resources :companies 
+ 
+  resources :restaurants 
 
-  resources :user do 
-    resources :restaurants
-  end 
+   resources :cities do 
+     resources :restaurants, only [:new, :create, :index]
+     resources :reviews, only: [:new, :create, :index] 
+   end 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+end 

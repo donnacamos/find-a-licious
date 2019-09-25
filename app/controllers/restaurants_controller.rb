@@ -2,11 +2,11 @@ class RestaurantsController < ApplicationController
     before_action :check_for_logged_in, except: [:index] 
 
     def new 
-        if params[:company_id] && company = Company.find_by_id(params[:company_id]) 
-        @restaurant = company.restaurants.build 
+        if params[:city_id] && city = City.find_by_id(params[:city_id]) 
+        @restaurant = city.restaurants.build 
         else 
         @restaurant = Restaurant.new 
-        @restaurant.build_company 
+        @restaurant.build_city  
         end  
     end 
 
@@ -16,21 +16,21 @@ class RestaurantsController < ApplicationController
         if @restaurant.save 
             redirect_to restaurant_path(@restaurant)
         else 
-            @restaurant.build_company unless @restaurant.company 
+            @restaurant.build_city unless @restaurant.city  
             render :new
         end 
     end 
 
     def index
-        if params[:company_id] && company = Company.find_by_id(params[:company_id])
+        if params[:city_id] && city = City.find_by_id(params[:city_id])
           #nested route
-          @restaurants = companies.restaurants 
+          @restaurants = city.restaurants 
         else
            if params[:price_range] 
-              @restaurants = Restaurants.search_by_price_range(params[:price_range]).order_by_price_range.includes(:company,:user)
+              @restaurants = Restaurants.search_by_price_range(params[:price_range]).order_by_price_range.includes(:city,:user)
               @restaurants = Restaurants.order_by_price_range if @restaurants == []
             else
-              @restaurants = Restaurant.includes(:company,:user).order_by_price_range 
+              @restaurants = Restaurant.includes(:city,:user).order_by_price_range 
               @cheap = @restaurants.cheap 
               @median = @restaurants.median 
               @expensive = @restaurants.expensive 

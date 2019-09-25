@@ -12,7 +12,16 @@
     <%= f.text_field :location, "address" %>
 
     <%= f.label :price_range %>
-    <%= f.select(:price_range, ["$", "$$", "$$$"])%>
+    <%= f.select(:price_range, ["$", "$$", "$$$"])%> 
+
+    <br><br>
+
+    <%= f.label :company_id, "Select a Company" %>
+    <%= f.collection_select :company_id, Company.all, :id, :name, prompt: true %> 
+    <br><br> 
+
+    <% if !params[:vet_id] %> 
+    
     
     <%= f.submit %>
     <% end %>
