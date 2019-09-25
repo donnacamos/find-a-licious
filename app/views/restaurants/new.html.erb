@@ -1,0 +1,18 @@
+<h1>Add a New Restaurant!</h1>
+
+<%= form_for(@restaurant) do |f| %> 
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+
+    <%= f.label :location, "address" %>
+    <%= f.text_field :location, "address" %>
+
+    <%= f.label :price_range %>
+    <%= f.select(:price_range, ["$", "$$", "$$$"])%>
+    
+    <%= f.submit %>
+    <% end %>
