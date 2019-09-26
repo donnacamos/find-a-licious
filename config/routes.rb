@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :cities
-  resources :companies
+ 
   root 'sessions#home'
-   get '/signup' => 'users#new'
+   get '/signup' => 'users#new' 
+   post '/signup' => 'users#create' 
    get '/login' => 'sessions#new'
    post '/login' => 'sessions#create'
    get '/logout' => 'sessions#destroy' 
@@ -10,12 +10,10 @@ Rails.application.routes.draw do
 
   
   resources :users
- 
+  resources :cities 
+  resources :reviews 
   resources :restaurants 
 
-  #  resources :cities do 
-  #    resources :restaurants,  only [:new, :create, :index]
-  #    resources :reviews,  only: [:new, :create, :index] 
-  #  end 
+   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end 
