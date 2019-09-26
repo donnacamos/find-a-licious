@@ -16,12 +16,17 @@
 
     <br><br>
 
-    <%= f.label :company_id, "Select a Company" %>
-    <%= f.collection_select :company_id, Company.all, :id, :name, prompt: true %> 
+    <%= f.label :city_id, "Select a City" %>
+    <%= f.collection_select :city_id, City.all, :id, :name, prompt: true %> 
     <br><br> 
 
-    <% if !params[:vet_id] %> 
-    
+    <% if !params[:city_id] %> 
+        <h4>Or add a new city:</h4>
+
+        <%= f.fields_for :city do |c| %>
+            <%= c.label :name %>
+            <%= c.text_field :name %>
+
     
     <%= f.submit %>
     <% end %>
