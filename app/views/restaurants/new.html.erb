@@ -1,31 +1,30 @@
 <h1>Add a New Restaurant!</h1>
 
-<%= form_for(@restaurant) do |f| %> 
+<%= form_for @restaurant do |f| %> 
 
     <%= f.label :name %>
     <%= f.text_field :name %>
+        <br></br>
 
     <%= f.label :type %>
-    <%= f.text_field :type %>
+    <%= f.select :type, options_for_select(["fast food", "fast casual", "steakhouse", "diner", "fine dining", "other"]), include_blank: true %>
+        <br></br>
+
+
+    <%= f.label :price_range %>
+    <%= f.select :price_range, options_for_selecct(["$", "$$", "$$$"])%> 
+        <br></br>
+
 
     <%= f.label :location, "address" %>
     <%= f.text_field :location, "address" %>
 
-    <%= f.label :price_range %>
-    <%= f.select(:price_range, ["$", "$$", "$$$"])%> 
+    <%= f.label :city  %>
+    <%= f.text_field :city %>
 
-    <br><br>
-
-    <%= f.label :city_id, "Select a City" %>
-    <%= f.collection_select :city_id, City.all, :id, :name, prompt: true %> 
-    <br><br> 
-
-    <% if !params[:city_id] %> 
-        <h4>Or add a new city:</h4>
-
-        <%= f.fields_for :city do |c| %>
-            <%= c.label :name %>
-            <%= c.text_field :name %>
+    <%= f.label :zip_code %> 
+    <%= f.text_field :zip_code %> 
+    <br></br> 
 
     
     <%= f.submit %>

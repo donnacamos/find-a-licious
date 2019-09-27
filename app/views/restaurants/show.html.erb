@@ -1,9 +1,9 @@
-<h1>You added this restaurant:</h1>
+<h1><%= @restaurant.name %></h2> 
 
-<%= @restaurant.name %> 
-<%= @restaurant.type %> 
-<%= @restaurant.location %> 
-<%= @restaurant.price_range %> 
+<p><%= @restaurant.type %></p>  
+<p><%= @restaurant.price_range %></p> 
+<p><%= @restaurant.location %></p> 
+<p><%= @restaurant.city %></p>   
 
 <%= "Add a review" link_to review_path %>
 
