@@ -1,31 +1,6 @@
-<h1>Add a New Restaurant!</h1>
+<h1>Create a new Restaurant</h1>
 
-<%= form_for @restaurant do |f| %> 
-
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-        <br></br>
-
-    <%= f.label :type %>
-    <%= f.select :type, options_for_select(["fast food", "fast casual", "steakhouse", "diner", "fine dining", "other"]), include_blank: true %>
-        <br></br>
+<%= render partial: "layouts/errors", locals: { object: @restaurant } %>
 
 
-    <%= f.label :price_range %>
-    <%= f.select :price_range, options_for_selecct(["$", "$$", "$$$"])%> 
-        <br></br>
-
-
-    <%= f.label :location, "address" %>
-    <%= f.text_field :location, "address" %>
-
-    <%= f.label :city  %>
-    <%= f.text_field :city %>
-
-    <%= f.label :zip_code %> 
-    <%= f.text_field :zip_code %> 
-    <br></br> 
-
-    
-    <%= f.submit %>
-    <% end %>
+<%= render "form" %>

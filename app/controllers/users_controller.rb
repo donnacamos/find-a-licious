@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+ 
     #loading the signup form
     def new
       @user = User.new
@@ -19,6 +19,12 @@ class UsersController < ApplicationController
    def show 
      @user = User.find_by(id: params[:id]) 
    end 
+
+   def index 
+    @users = User.all
+   end 
+
+
   
     private
   
