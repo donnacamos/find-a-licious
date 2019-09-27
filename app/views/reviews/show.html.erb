@@ -1,0 +1,7 @@
+<h1><%= @restaurant.name %></h1>
+
+<p><strong>Rating:</strong> <%= @review.rating %> </p>
+<p><%= @review.content %></p>
+
+
+<%= link_to "Edit Review", edit_review_path(@review) %> 

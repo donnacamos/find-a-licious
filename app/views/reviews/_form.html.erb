@@ -1,0 +1,13 @@
+<%= form_for @reviews do |f| %>
+
+    <%= f.label :rating %>
+    <%= f.text_field :rating,options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]) %>
+    <br></br>
+  
+    <%= f.label :content %>
+    <%= f.text_area :content %> 
+    <br></br>
+  
+    <%= f.submit%>
+  
+  <% end %>

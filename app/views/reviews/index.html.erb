@@ -1,0 +1,9 @@
+<h1>Your Reviews</h1>
+
+<% @review.each do |review|%>
+  <div>
+    <h3><%= link_to review.content, review_path(review) %> </h3>
+    <p>Rating: <%= review.rating %> |
+    Content: <%= review.content %></p>
+  </div><br>
+<% end %>
