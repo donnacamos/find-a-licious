@@ -6,8 +6,6 @@ class Review < ApplicationRecord
     belongs_to :users 
     belongs_to :restaurants 
 
-    def self.average_rating 
-        average(:rating)
-    end 
+    
     
 end
