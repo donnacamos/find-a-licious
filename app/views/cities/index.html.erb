@@ -1,0 +1,8 @@
+<h1>All Cities</h1>
+
+<% @cities.each do |city| %>
+<%= city.name %> 
+<%= link_to "See all cities" link_to cities_path(city) %>
+<%= link_to "Add a restaurant" link_to restaurants_path(restaurant) %> 
+
+<% end %> 

@@ -1,0 +1,13 @@
+<h1>Add a New City</h1> 
+<%= form_for @city do |f| %> 
+
+    <%= f.label :name %>
+    <%= f.text_field :name %> 
+    <br></br>
+
+    <%= f.label :restaurant_name %> 
+    <%= f.text_field :restaurant_name, "Restaurant Name" %>
+
+    <%= f.submit %> 
+
+    <% end %>
