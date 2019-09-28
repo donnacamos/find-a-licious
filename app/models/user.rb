@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     
-    has_many :restaurants 
-    has_many :cities, through: :restaurants  
+    has_many :cities  
+    has_many :restaurants, through: :cities   
     has_many :reviews, through: :restaurants
      
  
