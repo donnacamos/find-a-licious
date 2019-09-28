@@ -14,6 +14,10 @@ ActiveRecord::Schema.define(version: 2019_09_25_192043) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.string "state_abbreviation"
+    t.integer "zip_code"
+    t.integer "user_id"
+    t.integer "restaurant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -22,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_192043) do
     t.string "name"
     t.string "type"
     t.integer "price_range"
-    t.string "location"
+    t.string "address"
     t.integer "user_id"
     t.integer "city_id"
     t.datetime "created_at", precision: 6, null: false
