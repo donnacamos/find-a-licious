@@ -2,7 +2,11 @@ class RestaurantsController < ApplicationController
      
 
   def index
+    if params[:user_id]
+      @restaurants = User.find(params[user_id]).restaurants
+    else
       @restaurants = Restaurant.all 
+    end 
   end
 
     def new 
